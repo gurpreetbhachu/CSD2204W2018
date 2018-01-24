@@ -1,0 +1,65 @@
+
+Find prime numbers between 1 to 100 
+
+create procedure primen(in p int(5))
+    ->  begin
+    -> DECLARE iint default 1;
+    ->      DECLARE j int default 1;
+    ->      DECLARE x int default 0;
+    ->      DECLARE y int default 0;
+    ->      DECLARE strvarchar(20000);
+    ->      SET str=' ';
+    ->      while(j<=p) do
+    ->       while(i<=j) do
+    ->        if(j%i=0) then
+    ->         set x=x+1;
+    ->        end if;
+    ->        set i=i+1;
+    ->       end while;
+    ->      if(x=2) then
+    ->      SET str= concat(str,'\n',j);
+    ->      set y=y+1;
+    ->      end if;
+    ->        set x=0;
+    ->      set i=1;
+    ->      set j=j+1;
+    ->      end while;
+    ->      select str;
+    ->      select y as "prime numbers";
+    ->      end$$
+
+
+Output  :call primen(100);$$
+
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97 
+
+
++--------------+
+|prime numbers |
++--------------+
+|           25 |
++--------------+
